@@ -45,29 +45,29 @@
 	            <tr>
 	                <td>
 	                    <label for="nit">NIT</label>
-	                    <input type="text" id="nit" name="nit"/>
+	                    <input type="text" id="nit" name="Nit"/>
 	                </td>
 	                <td>
 	                <label for="phone">Teléfono</label>
-	                <input type="text" id="phone" name="telefono"/>
+	                <input type="text" id="phone" name="telefono_proveedor"/>
 	            </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="supplier">Nombre Proveedor</label>
-	                    <input type="text" id="supplier" name="proveedores"/>
+	                    <input type="text" id="supplier" name="nombre_proveedore"/>
 	                </td>
 	                <td>
 	                    <label for="city">Ciudad</label>
-	                    <input type="text" id="city" name="ciudad"/>
+	                    <input type="text" id="city" name="ciudad_proveedor"/>
 	                </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="address">Dirección</label>
-	                    <input type="text" id="address" name="direccion"/>
+	                    <input type="text" id="address" name="direccion_proveedor"/>
 	                </td>
 	            </tr>
 	            <tr class="botones">

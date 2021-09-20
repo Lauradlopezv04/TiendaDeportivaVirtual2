@@ -11,7 +11,7 @@
     proveedorVo.setNit(nit);
     proveedor.eliminarProveedor(proveedorVo.getNit());
 %>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,33 +41,33 @@
 	            <tr>
 	                <td>
 	                    <label for="nit">NIT</label>
-	                    <input type="text" id="nit" name="nit"/>
+	                    <input type="text" id="nit" name="Nit"/>
 	                </td>
 	                <td>
 	                <label for="phone">Teléfono</label>
-	                <input type="text" id="phone" name="telefono"/>
+	                <input type="text" id="phone" name="telefono_proveedor"/>
 	            </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="supplier">Nombre Proveedor</label>
-	                    <input type="text" id="supplier" name="proveedores"/>
+	                    <input type="text" id="supplier" name="nombre_proveedore"/>
 	                </td>
 	                <td>
 	                    <label for="city">Ciudad</label>
-	                    <input type="text" id="city" name="ciudad"/>
+	                    <input type="text" id="city" name="ciudad_proveedor"/>
 	                </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="address">Dirección</label>
-	                    <input type="text" id="address" name="direccion"/>
+	                    <input type="text" id="address" name="direccion_proveedor"/>
 	                </td>
 	            </tr>
 	            <tr class="botones">
-	                <td><input type="submit" value="Consultar" formaction="ConsultarProveedor.jsp"/>
+	                <td><input type="submit" value="Consultar"/>
 	                    <input type="submit" value="Crear" formaction="CrearProveedor.jsp"/>
 	                    <input type="submit" value="Actualizar" formaction="ActualizarProveedor.jsp"/>
 	                    <input type="submit" value="Borrar" formaction="EliminarProveedor.jsp"/>
