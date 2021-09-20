@@ -1,5 +1,5 @@
 package com.DTO;
 
-public class asd {
+public class sd {
 
 }
