@@ -7,14 +7,15 @@
 <%
 	ClientesController cliente= new ClientesController();
 	ClienteVo clienteVo= new ClienteVo();
-	long cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
+    long cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
     clienteVo.setCedula_cliente(cedula_cliente);
     clienteVo.setNombre_cliente(request.getParameter("nombre_cliente"));
     clienteVo.setDireccion_cliente(request.getParameter("direccion_cliente"));
     clienteVo.setTelefono_cliente(request.getParameter("telefono_cliente"));
     clienteVo.setEmail_cliente(request.getParameter("email_cliente"));
-    cliente.registrarCliente(clienteVo);
+    cliente.actualizarCliente(clienteVo);
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,10 +73,10 @@
                     </td>
                 </tr>
                 <tr class="botones">
-                    <td><input type="submit" value="Consultar" formaction="ConsultarCliente.jsp"/>
+                    <td><input type="submit" value="Consultar"/>
                         <input type="submit" value="Crear" formaction="CrearCliente.jsp"/>
                         <input type="submit" value="Actualizar" formaction="ActualizarCliente.jsp"/>
-                        <input type="submit" value="Borrar" formaction="EliminarCliente.jsp"/>
+                        <input type="submit" value="Borrar"/>
                     </td>
                 </tr>
             </table>    

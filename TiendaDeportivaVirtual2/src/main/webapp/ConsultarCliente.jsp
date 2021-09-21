@@ -7,14 +7,10 @@
 <%
 	ClientesController cliente= new ClientesController();
 	ClienteVo clienteVo= new ClienteVo();
-	long cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
-    clienteVo.setCedula_cliente(cedula_cliente);
-    clienteVo.setNombre_cliente(request.getParameter("nombre_cliente"));
-    clienteVo.setDireccion_cliente(request.getParameter("direccion_cliente"));
-    clienteVo.setTelefono_cliente(request.getParameter("telefono_cliente"));
-    clienteVo.setEmail_cliente(request.getParameter("email_cliente"));
-    cliente.registrarCliente(clienteVo);
+    long cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
+    cliente.consultarCliente(cedula_cliente);
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,4 +78,3 @@
         </form>
     </div>
 </body>
-</html>

@@ -9,7 +9,7 @@ public class ClienteDao extends Conexion {
 	public void registrarCliente(ClienteVo Cliente) {
 		try {
 			Conectar();
-			PreparedStatement sentencia = Conexion.prepareStatement("insert into clientes(cedula_cliente, nombre_cliente, direccion_cliente, , telefono_cliente, email_cliente) values (?,?,?,?,?)");
+			PreparedStatement sentencia = Conexion.prepareStatement("insert into clientes(cedula_cliente, nombre_cliente, direccion_cliente, telefono_cliente, email_cliente) values (?,?,?,?,?)");
 			sentencia.setLong(1, Cliente.getCedula_cliente());
 			sentencia.setString(2, Cliente.getNombre_cliente());
 			sentencia.setString(3, Cliente.getDireccion_cliente());
@@ -25,7 +25,7 @@ public class ClienteDao extends Conexion {
 	public void actualizarCliente(ClienteVo Cliente) {
 		try {
 			Conectar();
-			PreparedStatement sentencia = Conexion.prepareStatement("update clientes set nombre_cliente = ?, direccion_cliente=?, telefono_cliente = ? email_cliente = ? where cedula_cliente = ?");
+			PreparedStatement sentencia = Conexion.prepareStatement("update clientes set nombre_cliente = ?, direccion_cliente=?, telefono_cliente = ?, email_cliente = ? where cedula_cliente = ?");
 			sentencia.setString(1, Cliente.getNombre_cliente());
 			sentencia.setString(2, Cliente.getDireccion_cliente());
 			sentencia.setString(3, Cliente.getTelefono_cliente());

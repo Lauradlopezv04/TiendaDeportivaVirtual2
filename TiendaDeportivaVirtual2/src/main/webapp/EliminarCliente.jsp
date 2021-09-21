@@ -5,15 +5,11 @@
         com.BO.TiendaDeportivaVirtual.*,com.DTO.TiendaDeportivaVirtual.*"
 %>
 <%
-	ClientesController cliente= new ClientesController();
-	ClienteVo clienteVo= new ClienteVo();
-	long cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
-    clienteVo.setCedula_cliente(cedula_cliente);
-    clienteVo.setNombre_cliente(request.getParameter("nombre_cliente"));
-    clienteVo.setDireccion_cliente(request.getParameter("direccion_cliente"));
-    clienteVo.setTelefono_cliente(request.getParameter("telefono_cliente"));
-    clienteVo.setEmail_cliente(request.getParameter("email_cliente"));
-    cliente.registrarCliente(clienteVo);
+	ClientesController Cliente =new ClientesController();
+    ClienteVo ClienteVo=new ClienteVo();
+    long cedula= Long.parseLong(request.getParameter("cedula_cliente"));
+    ClienteVo.setCedula_cliente(cedula);
+    Cliente.eliminarCliente(ClienteVo.getCedula_cliente());
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +71,7 @@
                     <td><input type="submit" value="Consultar" formaction="ConsultarCliente.jsp"/>
                         <input type="submit" value="Crear" formaction="CrearCliente.jsp"/>
                         <input type="submit" value="Actualizar" formaction="ActualizarCliente.jsp"/>
-                        <input type="submit" value="Borrar" formaction="EliminarCliente.jsp"/>
+                        <input type="submit" value="Borrar" formaction="EliminarCliente.jsp" />
                     </td>
                 </tr>
             </table>    

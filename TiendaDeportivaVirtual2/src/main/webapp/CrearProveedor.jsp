@@ -56,7 +56,7 @@
 	                <td>
 	                    <br>
 	                    <label for="supplier">Nombre Proveedor</label>
-	                    <input type="text" id="supplier" name="nombre_proveedore"/>
+	                    <input type="text" id="supplier" name="nombre_proveedor"/>
 	                </td>
 	                <td>
 	                    <label for="city">Ciudad</label>
