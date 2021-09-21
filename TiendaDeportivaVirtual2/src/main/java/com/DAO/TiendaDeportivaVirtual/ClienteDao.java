@@ -41,7 +41,7 @@ public class ClienteDao extends Conexion {
 	public void eliminarCliente(Long cedula_cliente) {
 		try {
 			Conectar();
-			PreparedStatement sentencia = Conexion.prepareStatement("delefe from clientes where cedula_cliente = ?");
+			PreparedStatement sentencia = Conexion.prepareStatement("delete from clientes where cedula_cliente = ?");
 			sentencia.setLong(1, cedula_cliente);
 			sentencia.executeUpdate();
 			Desconectar();
