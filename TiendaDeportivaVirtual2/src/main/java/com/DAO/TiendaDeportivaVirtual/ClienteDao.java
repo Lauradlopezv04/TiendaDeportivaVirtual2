@@ -1,8 +1,6 @@
 package com.DAO.TiendaDeportivaVirtual;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import com.DTO.TiendaDeportivaVirtual.ClienteVo;
 
 public class ClienteDao extends Conexion {

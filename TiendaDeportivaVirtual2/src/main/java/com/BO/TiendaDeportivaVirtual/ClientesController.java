@@ -21,15 +21,15 @@ public class ClientesController {
 	
 	
 	@RequestMapping("/eliminarCliente")
-	public void eliminarCliente(Long cedula_Cliente){
+	public void eliminarCliente(Long cedula_cliente){
 		ClienteDao Dao= new ClienteDao();
-		Dao.eliminarCliente(cedula_Cliente);
+		Dao.eliminarCliente(cedula_cliente);
 	}
 	
 	@RequestMapping("/consultarCliente")
-	public ClienteVo consultarCliente(Long cedula_Cliente){
+	public ClienteVo consultarCliente(Long cedula_cliente){
 		ClienteDao Dao= new ClienteDao();
-		return Dao.consultarCliente(cedula_Cliente);
+		return Dao.consultarCliente(cedula_cliente);
 	}
 	
 	

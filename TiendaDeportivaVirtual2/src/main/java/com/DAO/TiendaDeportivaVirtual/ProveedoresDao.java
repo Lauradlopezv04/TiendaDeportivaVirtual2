@@ -1,9 +1,6 @@
 package com.DAO.TiendaDeportivaVirtual;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-
 import com.DTO.TiendaDeportivaVirtual.ProveedorVo;
 
 public class ProveedoresDao extends Conexion{
@@ -26,7 +23,7 @@ public class ProveedoresDao extends Conexion{
 	public void actualizarProveedor(ProveedorVo Proveedor) {
 		try {
 			Conectar();
-			PreparedStatement sentencia = Conexion.prepareStatement("update proveedores set nombre_proveedor = ?,direccion_proveedor  = ?, telefono_proveedor = ?, ciudad_proveedor = ? where Nit = ?");
+			PreparedStatement sentencia = Conexion.prepareStatement("update proveedores set nombre_proveedor= ?,direccion_proveedor= ?, telefono_proveedor = ?, ciudad_proveedor = ? where Nit = ?");
 			sentencia.setString(1, Proveedor.getNombre_proveedor());
 			sentencia.setString(2, Proveedor.getDireccion_proveedor());
 			sentencia.setString(3, Proveedor.getTelefono_proveedor());
@@ -42,7 +39,7 @@ public class ProveedoresDao extends Conexion{
 	public void eliminarProveedor(Long Nit) {
 		try {
 			Conectar();
-			PreparedStatement sentencia = Conexion.prepareStatement("delefe from proveedores where Nit = ?");
+			PreparedStatement sentencia = Conexion.prepareStatement("delete from proveedores where Nit =?");
 			sentencia.setLong(1, Nit);
 			sentencia.executeUpdate();
 			Desconectar();
@@ -61,9 +58,9 @@ public class ProveedoresDao extends Conexion{
 				ProveedorVo Proveedor = new ProveedorVo();
 				Proveedor.setNit(datos.getLong("Nit"));
 				Proveedor.setNombre_proveedor(datos.getString("nombre_proveedor"));
-				Proveedor.setDireccion_proveedor(datos.getString("direccion_Proveedor"));
+				Proveedor.setDireccion_proveedor(datos.getString("direccion_proveedor"));
 				Proveedor.setTelefono_proveedor(datos.getString("telefono_proveedor"));
-				Proveedor.setCiudad_proveedor(datos.getString("ciudad_proveedor"));
+				Proveedor.setCiudad_proveedor(datos.getString("ciudad_proveedor"));			
 				return Proveedor;
 			}
 			Desconectar();

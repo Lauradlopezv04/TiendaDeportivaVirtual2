@@ -1,10 +1,12 @@
 package com.BO.TiendaDeportivaVirtual;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.DAO.TiendaDeportivaVirtual.ProveedoresDao;
 import com.DTO.TiendaDeportivaVirtual.ProveedorVo;
 
+@RestController
 public class ProveedoresController {
 	/*Registrar Usuarios*/
 	@RequestMapping("/registrarProveedor")
@@ -29,6 +31,7 @@ public class ProveedoresController {
 	
 	@RequestMapping("/consultarProveedor")
 	public ProveedorVo consultarProveedor(Long Nit){
+		System.out.println("proveedorController/consultarProveedor");
 		ProveedoresDao Dao =new ProveedoresDao();
 		return Dao.consultarProveedor(Nit);
 	}
