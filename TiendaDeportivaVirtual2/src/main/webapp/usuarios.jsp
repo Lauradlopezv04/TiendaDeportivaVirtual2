@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +16,21 @@
             <h2></h2>
          </div>
           <div class="item-b">
-            <a href="./usuarios.html">Usuarios</a>
-            <a href="./clientes.html">Clientes</a>
-            <a href="./proveedores.html">Proveedores</a>
-            <a href="./productos.html">Productos</a>
-            <a href="./ventas.html">Ventas</a>
-            <a href="./reportes.html">Reportes</a>
+            <a href="./usuarios.jsp">Usuarios</a>
+            <a href="./clientes.jsp">Clientes</a>
+            <a href="./proveedores.jsp">Proveedores</a>
+            <a href="./productos.jsp">Productos</a>
+            <a href="./ventas.jsp">Ventas</a>
+            <a href="./reportes.jsp">Reportes</a>
           </div>
     </div>
 
     <div id="reusuario">
-      <form method="POST">
+      <form action="GestionUsuarios.jsp" method="POST">
             <table>
                 <tr class="elemento">
                  <td>
-                        <label for="document">CÃ©dula</label>
+                        <label for="document">Cédula</label>
                         <input type="text" id="document" name="cedula_usuario"/>
                     </td>
                     <td>
@@ -44,22 +46,22 @@
                         <input type="text" id="name" name="nombre_usuario"/>
                     </td>
                     <td>
-                    <label for="password">ContraseÃ±a</label>
+                    <label for="password">Contraseña</label>
                     <input type="password" id="password" name="contrasena"/>
                 </tr>
                 <tr class="elemento">
                     <td>
                         <br>
-                        <label for="mail">Correo ElectrÃ³nico</label>
+                        <label for="mail">Correo Electrónico</label>
                         <input type="email" id="mail" name="email_usuario"/>
                     </td>
                 </tr>
                 <tr class="botones">
                     <td>
-                    	<input type="submit" value="Consultar" name="crear" formaction="GestionUsuarios.jsp"/>
-                    	<input type="submit"  value="Crear" formaction="GestionUsuarios.jsp"/>
-                    	<input  type="submit" value="Actualizar" formaction="GestionUsuarios.jsp"/>
-                    	<input type="submit" value="Borrar" formaction="GestionUsuarios.jsp"/>
+                    	<input type="submit" name="boton" value="Consultar"/>
+                    	<input type="submit" name="boton"  value="Crear"/>
+                    	<input  type="submit" name="boton"value="Actualizar"/>
+                    	<input type="submit" name="boton" value="Borrar"/>
                     </td>
                 </tr>
             </table> 
@@ -67,3 +69,4 @@
     </div>
 </body>
 </html>
+    
