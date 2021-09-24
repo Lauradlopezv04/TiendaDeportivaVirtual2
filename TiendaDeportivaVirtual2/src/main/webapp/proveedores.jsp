@@ -1,16 +1,7 @@
-<%@ page
-    import="
-        java.io.*,
-        java.util.*,
-        com.BO.TiendaDeportivaVirtual.*,com.DTO.TiendaDeportivaVirtual.*"
-%>
-<%
-	ProveedoresController proveedor =new ProveedoresController();
-    ProveedorVo proveedorVo=new ProveedorVo();
-    long nit= Long.parseLong(request.getParameter("Nit"));
-    proveedor.consultarProveedor(nit);
-%>
-<html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,17 +16,17 @@
             <h2></h2>
          </div>
           <div class="item-b">
-            <a href="./usuarios.html">Usuarios</a>
-            <a href="./clientes.html">Clientes</a>
-            <a href="./proveedores.html">Proveedores</a>
-            <a href="./productos.html">Productos</a>
-            <a href="#infopersonal">Ventas</a>
-            <a href="./reportes.html">Reportes</a>
+            <a href="./usuarios.jsp">Usuarios</a>
+            <a href="./clientes.jsp">Clientes</a>
+            <a href="./proveedores.jsp">Proveedores</a>
+            <a href="./productos.jsp">Productos</a>
+            <a href="./ventas.jsp">Ventas</a>
+            <a href="./reportes.jsp">Reportes</a>
           </div>
         </div>
 
     <div id="reproveedores">
-    	<form method="POST">
+    	<form action="GestionProveedores.jsp" method="POST">
 	        <table>
 	            <tr>
 	                <td>
@@ -51,7 +42,7 @@
 	                <td>
 	                    <br>
 	                    <label for="supplier">Nombre Proveedor</label>
-	                    <input type="text" id="supplier" name="nombre_proveedore"/>
+	                    <input type="text" id="supplier" name="nombre_proveedor"/>
 	                </td>
 	                <td>
 	                    <label for="city">Ciudad</label>
@@ -67,9 +58,9 @@
 	            </tr>
 	            <tr class="botones">
 	                <td><input type="submit" value="Consultar"/>
-	                    <input type="submit" value="Crear" formaction="CrearProveedor.jsp"/>
-	                    <input type="submit" value="Actualizar" formaction="ActualizarProveedor.jsp"/>
-	                    <input type="submit" value="Borrar" formaction="EliminarProveedor.jsp"/>
+	                    <input type="submit" value="Crear"/>
+	                    <input type="submit" value="Actualizar"/>
+	                    <input type="submit" value="Borrar"/>
 	                </td>
 	            </tr>
 	           

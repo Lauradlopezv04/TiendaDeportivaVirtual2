@@ -25,7 +25,7 @@
     	if(userVo.getCedula_usuario()==0){
     		request.getRequestDispatcher("usuarios.jsp").forward(request, response);
     	}
-    	
+
     }
     else if(opcion.equals("Crear")){
         long cedula= Long.parseLong(request.getParameter("cedula_usuario"));
@@ -114,8 +114,18 @@
                     <td>
                     	<input type="submit" name="boton" value="Consultar"/>
                     	<input type="submit" name="boton"  value="Crear"/>
-                    	<input  type="submit" name="boton"value="Actualizar"/>
+                    	<input type="submit" name="boton"value="Actualizar"/>
                     	<input type="submit" name="boton" value="Borrar"/>
+                    	<input onclick="limpiar()" type="submit" value="Limpiar"></input>
+                    	<script>
+                    	function limpiar() {
+                    	    document.getElementById("cedula_usuario").value = "";
+                    	    document.getElementById("usuario").value = "";
+                    	    document.getElementById("nombre_usuario").value = "";
+                    	    document.getElementById("contrasena").value = "";
+                    	    document.getElementById("email_usuario").value = "";
+                    	}</script>
+                    	
                     </td>
                 </tr>
             </table> 

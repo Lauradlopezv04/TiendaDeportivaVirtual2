@@ -13,18 +13,18 @@
         <div class="item-a">
             <h2></h2>
          </div>
-          <div class="item-b">
-            <a href="./usuarios.jsp">Usuarios</a>
-            <a href="./clientes.jsp">Clientes</a>
-            <a href="./proveedores.jsp">Proveedores</a>
-            <a href="./productos.jsp">Productos</a>
-             <a href="./ventas.jsp">Ventas</a>
-            <a href="./reportes.jsp">Reportes</a>
+         <div class="item-b">
+            <a href="./usuarios.html">Usuarios</a>
+            <a href="./clientes.html">Clientes</a>
+            <a href="./proveedores.html">Proveedores</a>
+            <a href="./productos.html">Productos</a>
+            <a href="./ventas.html">Ventas</a>
+            <a href="./reportes.html">Reportes</a>
           </div>
         </div>
 
     <div id="reproveedores">
-    	<form action="GestionProveedores" method="POST">
+    	<form method="POST">
 	        <table>
 	            <tr>
 	                <td>
@@ -55,10 +55,10 @@
 	                </td>
 	            </tr>
 	            <tr class="botones">
-	                <td><input type="submit" value="Consultar" />
-	                    <input type="submit" value="Crear" />
-	                    <input type="submit" value="Actualizar" />
-	                    <input type="submit" value="Borrar"/>
+	                <td><input type="submit" value="Consultar" name="crear" formaction="GestionProveedores.jsp" />
+	                    <input type="submit" value="Crear" formaction="GestionProveedores.jsp"/>
+	                    <input type="submit" value="Actualizar" formaction="GestionProveedores.jsp"/>
+	                    <input type="submit" value="Borrar" formaction="GestionProveedores.jsp"/>
 	                </td>
 	            </tr>
 	           

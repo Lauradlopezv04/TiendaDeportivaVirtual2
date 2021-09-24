@@ -60,10 +60,14 @@ public class ProveedoresDao extends Conexion{
 				Proveedor.setNombre_proveedor(datos.getString("nombre_proveedor"));
 				Proveedor.setDireccion_proveedor(datos.getString("direccion_proveedor"));
 				Proveedor.setTelefono_proveedor(datos.getString("telefono_proveedor"));
-				Proveedor.setCiudad_proveedor(datos.getString("ciudad_proveedor"));			
+				Proveedor.setCiudad_proveedor(datos.getString("ciudad_proveedor"));
+				Desconectar();
 				return Proveedor;
+			}else {
+				ProveedorVo Proveedor = new ProveedorVo();
+				Proveedor.setNit(0);
 			}
-			Desconectar();
+			
 		} catch(Exception e) {
 			System.out.println(e);
 			return null;
