@@ -85,11 +85,11 @@
                 <tr class="elemento">
                  <td>
                         <label for="document">Cédula</label>
-                        <input type="text" id="document" name="cedula_usuario"/>
+                        <input type="text" id="document" name="cedula_usuario" value="<%=userVo.getCedula_usuario() %>"/>
                     </td>
                     <td>
                     <label for="user">Usuario</label>
-                    <input type="text" id="user" name="usuario"/>
+                    <input type="text" id="user" name="usuario" value="<%= userVo.getUsuario() %>"/>
                 </td>
                 </tr>
                 
@@ -97,17 +97,17 @@
                     <td>
                         <br>
                         <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="nombre_usuario"/>
+                        <input type="text" id="name" name="nombre_usuario" value="<%=userVo.getNombre_usuario()  %>"/>
                     </td>
                     <td>
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="contrasena"/>
+                    <input type="password" id="password" name="contrasena" value="<%= userVo.getContrasena() %>"/>
                 </tr>
                 <tr class="elemento">
                     <td>
                         <br>
                         <label for="mail">Correo Electrónico</label>
-                        <input type="email" id="mail" name="email_usuario"/>
+                        <input type="email" id="mail" name="email_usuario" value="<%= userVo.getEmail_usuario() %>"/>
                     </td>
                 </tr>
                 <tr class="botones">
