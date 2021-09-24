@@ -61,13 +61,16 @@ public class ClienteDao extends Conexion {
 				Cliente.setDireccion_cliente(datos.getString("direccion_cliente"));
 				Cliente.setTelefono_cliente(datos.getString("telefono_cliente"));
 				Cliente.setEmail_cliente(datos.getString("email_cliente"));
+				Desconectar();
 				return Cliente;
+			}else {
+				ClienteVo Cliente = new ClienteVo();
+				Cliente.setCedula_cliente(0);
+				return null;
 			}
-			Desconectar();
 		} catch(Exception e) {
 			System.out.println(e);
 			return null;
 		}
-		return null;
 	}
 }

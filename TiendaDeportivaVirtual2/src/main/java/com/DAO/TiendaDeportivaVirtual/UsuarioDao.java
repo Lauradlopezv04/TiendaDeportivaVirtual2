@@ -10,6 +10,9 @@ import com.DTO.TiendaDeportivaVirtual.UsuarioVo;
 
 
 public class UsuarioDao extends Conexion {
+	private static final UsuarioVo Usuario = null;
+
+
 	public void registrarPersona(UsuarioVo Usuario) {
 		try {
 			Conectar();
@@ -69,9 +72,13 @@ public class UsuarioDao extends Conexion {
 				Usuario.setEmail_usuario(datos.getString("email_usuario"));
 				Usuario.setUsuario(datos.getString("usuario"));
 				Usuario.setContrasena(datos.getString("contrasena"));
+				Desconectar();
 				return Usuario;
+			}else {
+				UsuarioVo Usuario = new UsuarioVo();
+				Usuario.setCedula_usuario(0);
 			}
-			Desconectar();
+			
 		} catch(Exception e) {
 			System.out.println(e);
 			return null;

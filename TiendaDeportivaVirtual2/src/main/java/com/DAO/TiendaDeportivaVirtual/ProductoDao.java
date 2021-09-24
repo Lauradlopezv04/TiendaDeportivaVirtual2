@@ -1,13 +1,9 @@
 package com.DAO.TiendaDeportivaVirtual;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
 
@@ -15,7 +11,8 @@ public class ProductoDao extends Conexion {
 	public void recorrercsv() {
 		try {
 			Conectar();
-			for (ProductoVo producto : leer()) {
+			ProductoCsv lista = new ProductoCsv();
+			for (ProductoVo producto : lista.leer()) {
 				PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
 				sentencia.setLong(1, producto.getCodigo_producto());
 				sentencia.setString(2, producto.getNombre_producto());
@@ -44,31 +41,6 @@ public class ProductoDao extends Conexion {
 			return false;
 		}
 	}
-	public List<ProductoVo> leer() {
-		String archivo = "tablaprecios.csv";
-		BufferedReader leer = null;
-		String linea = "";
-		String separarcsv = ",";
-		ProductoVo producto = new ProductoVo();
-		List<ProductoVo> productolista = new ArrayList<ProductoVo>();
-		try {
-			leer = new BufferedReader(new FileReader(archivo));
-			while ((linea = leer.readLine()) != null) {
-				String[] datos = linea.split(separarcsv);
-				producto.setCodigo_producto(Long.parseLong(datos[0]));
-				producto.setNombre_producto(datos[1]);
-				producto.setNitproveedor(Long.parseLong(datos[2]));
-				producto.setPrecio_compra(Double.parseDouble(datos[3]));
-				producto.setIvacompra(Long.parseLong(datos[4]));
-				producto.setPrecio_venta(Long.parseLong(datos[5]));
-				productolista.add(producto);
-			}
-			return productolista;
-			} catch(Exception e) {
-				System.out.println(e);
-				return null;
-			}
-	}
-	}
+}
 	
 
