@@ -2,10 +2,10 @@
     import="
         java.io.*,
         java.util.*,
-        com.BO.TiendaDeportivaVirtual.*,com.DTO.TiendaDeportivaVirtual.*"
+        com.BO.TiendaDeportivaVirtual.*,
+        com.DTO.TiendaDeportivaVirtual.*"
 %>
 <%
-	long cedula_cliente= 0;
 	String nombre_cliente="";
 	String direccion_cliente="";
 	String telefono_cliente="";
@@ -15,20 +15,20 @@
     String opcion=request.getParameter("boton");
     try{
     if(opcion.equals("Consultar")){
-    	cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
-        clienteVo.setCedula_cliente(cedula_cliente);
-        clienteVo=cliente.consultarCliente(cedula_cliente);
+    	long cedula_cli= Long.parseLong(request.getParameter("cedula_cliente"));
+        clienteVo.setCedula_cliente(cedula_cli);
+        clienteVo=cliente.consultarCliente(cedula_cli);
         nombre_cliente= clienteVo.getNombre_cliente();
         direccion_cliente= clienteVo.getDireccion_cliente();
         telefono_cliente= clienteVo.getTelefono_cliente();
         email_cliente= clienteVo.getEmail_cliente();
         if(clienteVo.getCedula_cliente()==0){
-    		request.getRequestDispatcher("usuarios.jsp").forward(request, response);
+    		request.getRequestDispatcher("clientes.jsp").forward(request, response);
     	}
     }
     else if(opcion.equals("Crear")){
-    	cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
-        clienteVo.setCedula_cliente(cedula_cliente);
+    	long cedula_cli= Long.parseLong(request.getParameter("cedula_cliente"));
+        clienteVo.setCedula_cliente(cedula_cli);
         clienteVo.setNombre_cliente(request.getParameter("nombre_cliente"));
         clienteVo.setDireccion_cliente(request.getParameter("direccion_cliente"));
         clienteVo.setTelefono_cliente(request.getParameter("telefono_cliente"));
@@ -36,8 +36,8 @@
         cliente.registrarCliente(clienteVo);
     }
     else if(opcion.equals("Actualizar")){
-        cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
-        clienteVo.setCedula_cliente(cedula_cliente);
+        long cedula_cli= Long.parseLong(request.getParameter("cedula_cliente"));
+        clienteVo.setCedula_cliente(cedula_cli);
         clienteVo.setNombre_cliente(request.getParameter("nombre_cliente"));
         clienteVo.setDireccion_cliente(request.getParameter("direccion_cliente"));
         clienteVo.setTelefono_cliente(request.getParameter("telefono_cliente"));
@@ -45,8 +45,8 @@
         cliente.actualizarCliente(clienteVo);
     }
     else if(opcion.equals("Borrar")){
-        cedula_cliente= Long.parseLong(request.getParameter("cedula_cliente"));
-        clienteVo.setCedula_cliente(cedula_cliente);
+        long cedula_cli= Long.parseLong(request.getParameter("cedula_cliente"));
+        clienteVo.setCedula_cliente(cedula_cli);
         cliente.eliminarCliente(clienteVo.getCedula_cliente());
     }
     }catch (Exception e){
@@ -84,29 +84,29 @@
                 <tr>
                     <td>
                         <label for="document">Cédula</label>
-                        <input type="text" id="document" name="cedula_cliente"/>
+                        <input type="text" id="document" name="cedula_cliente" value="<%=clienteVo.getCedula_cliente()%>"/>
                     </td>
                     <td>
                         <label for="phone">Teléfono</label>
-                        <input type="text" id="phone" name="telefono_cliente"/>
+                        <input type="text" id="phone" name="telefono_cliente" value="<%=clienteVo.getTelefono_cliente()%>"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <br>
                         <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="nombre_cliente"/>
+                        <input type="text" id="name" name="nombre_cliente" value="<%=clienteVo.getNombre_cliente() %>"/>
                     </td>
                     <td>
                         <label for="mail">Correo Electrónico</label>
-                        <input type="email" id="mail" name="email_cliente"/>
+                        <input type="email" id="mail" name="email_cliente" value="<%=clienteVo.getEmail_cliente() %>"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <br>
                         <label for="address">Dirección</label>
-                        <input type="text" id="address" name="direccion_cliente"/>
+                        <input type="text" id="address" name="direccion_cliente" value="<%=clienteVo.getDireccion_cliente()%>"/>
                     </td>
                 </tr>
                 <tr class="botones">
@@ -114,6 +114,15 @@
                         <input type="submit" name="boton" value="Crear"/>
                         <input type="submit" name="boton" value="Actualizar" />
                         <input type="submit" name="boton" value="Borrar"/>
+                        <input onclick="limpiar()" type="submit" value="Limpiar"></input>
+                    	<script>
+                    	function limpiar() {
+                    	    document.getElementById("cedula_cliente").value = "";
+                    	    document.getElementById("telefono_cliente").value = "";
+                    	    document.getElementById("nombre_cliente").value = "";
+                    	    document.getElementById("email_cliente").value = "";
+                    	    document.getElementById("direccion_cliente").value = "";
+                    	}</script>
                     </td>
                 </tr>
             </table>    

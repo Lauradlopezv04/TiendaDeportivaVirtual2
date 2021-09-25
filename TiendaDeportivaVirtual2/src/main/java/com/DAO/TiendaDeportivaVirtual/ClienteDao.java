@@ -66,11 +66,11 @@ public class ClienteDao extends Conexion {
 			}else {
 				ClienteVo Cliente = new ClienteVo();
 				Cliente.setCedula_cliente(0);
-				return null;
 			}
 		} catch(Exception e) {
 			System.out.println(e);
 			return null;
 		}
+		return null;
 	}
 }

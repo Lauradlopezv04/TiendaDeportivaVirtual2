@@ -5,50 +5,49 @@
         com.BO.TiendaDeportivaVirtual.*,com.DTO.TiendaDeportivaVirtual.*"
 %>
 <%
-	long Nit = 0;
-	String telefono="";
 	String nombrepro="";
-	String ciudad="";
 	String direccion="";
+	String telefono="";
+	String ciudad="";
 	ProveedoresController proveedor =new ProveedoresController();
-    ProveedorVo ProveedorVo=new ProveedorVo();
+    ProveedorVo proveedorVo=new ProveedorVo();
     String opcion=request.getParameter("boton");
     try{
     if(opcion.equals("Consultar")){
     	long nit= Long.parseLong(request.getParameter("Nit"));
-        ProveedorVo.setNit(nit);
-    	ProveedorVo=proveedor.consultarProveedor(nit);
-    	telefono= ProveedorVo.getTelefono_proveedor();
-    	nombrepro= ProveedorVo.getNombre_proveedor();
-    	ciudad= ProveedorVo.getCiudad_proveedor();
-    	direccion= ProveedorVo.getDireccion_proveedor();
-    	if(ProveedorVo.getNit()==0){
+        proveedorVo.setNit(nit);
+    	proveedorVo=proveedor.consultarProveedor(nit);
+    	nombrepro= proveedorVo.getNombre_proveedor();
+    	direccion= proveedorVo.getDireccion_proveedor();
+    	telefono= proveedorVo.getTelefono_proveedor();
+    	ciudad= proveedorVo.getCiudad_proveedor();
+    	if(proveedorVo.getNit()==0){
     		request.getRequestDispatcher("proveedores.jsp").forward(request, response);
     	}
 
     }
     else if(opcion.equals("Crear")){
     	long nit= Long.parseLong(request.getParameter("Nit"));
-    	ProveedorVo.setNit(nit);
-        ProveedorVo.setTelefono_proveedor(request.getParameter("telefono_proveedor"));
-        ProveedorVo.setNombre_proveedor(request.getParameter("nombre_proveedore"));
-        ProveedorVo.setCiudad_proveedor(request.getParameter("ciudad_proveedor"));
-        ProveedorVo.setDireccion_proveedor(request.getParameter("direccion_proveedor"));
-        proveedor.registrarProveedor(ProveedorVo);
+    	proveedorVo.setNit(nit);
+        proveedorVo.setNombre_proveedor(request.getParameter("nombre_proveedor"));
+        proveedorVo.setDireccion_proveedor(request.getParameter("direccion_proveedor"));
+        proveedorVo.setTelefono_proveedor(request.getParameter("telefono_proveedor"));
+        proveedorVo.setCiudad_proveedor(request.getParameter("ciudad_proveedor"));
+        proveedor.registrarProveedor(proveedorVo);
     }
     else if(opcion.equals("Actualizar")){
-    	long nit= Long.parseLong(request.getParameter("Nit"));
-    	ProveedorVo.setNit(nit);
-   	    ProveedorVo.setTelefono_proveedor(request.getParameter("telefono_proveedor"));
-        ProveedorVo.setNombre_proveedor(request.getParameter("nombre_proveedore"));
-        ProveedorVo.setCiudad_proveedor(request.getParameter("ciudad_proveedor"));
-        ProveedorVo.setDireccion_proveedor(request.getParameter("direccion_proveedor"));
-        proveedor.actualizarProveedor(ProveedorVo);
+        long nit= Long.parseLong(request.getParameter("Nit"));
+    	proveedorVo.setNit(nit);
+   	    proveedorVo.setTelefono_proveedor(request.getParameter("telefono_proveedor"));
+        proveedorVo.setNombre_proveedor(request.getParameter("nombre_proveedor"));
+        proveedorVo.setCiudad_proveedor(request.getParameter("ciudad_proveedor"));
+        proveedorVo.setDireccion_proveedor(request.getParameter("direccion_proveedor"));
+        proveedor.actualizarProveedor(proveedorVo);
     }
     else if(opcion.equals("Borrar")){
     	long nit= Long.parseLong(request.getParameter("Nit"));
-    	ProveedorVo.setNit(nit);
-    	    proveedor.eliminarProveedor(ProveedorVo.getNit());
+    	proveedorVo.setNit(nit);
+    	proveedor.eliminarProveedor(proveedorVo.getNit());
     }
     }catch (Exception e){
     	request.getRequestDispatcher("proveedores.jsp").forward(request, response);
@@ -84,29 +83,29 @@
 	            <tr>
 	                <td>
 	                    <label for="nit">NIT</label>
-	                    <input type="text" id="nit" name="Nit"/>
+	                    <input type="text" id="nit" name="Nit" value="<%= proveedorVo.getNit()%>"/>
 	                </td>
 	                <td>
 	                <label for="phone">Teléfono</label>
-	                <input type="text" id="phone" name="telefono_proveedor"/>
+	                <input type="text" id="phone" name="telefono_proveedor" value="<%=proveedorVo.getTelefono_proveedor()%>"/>
 	            </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="supplier">Nombre Proveedor</label>
-	                    <input type="text" id="supplier" name="nombre_proveedor"/>
+	                    <input type="text" id="supplier" name="nombre_proveedor" value="<%=proveedorVo.getNombre_proveedor()%>"/>
 	                </td>
 	                <td>
 	                    <label for="city">Ciudad</label>
-	                    <input type="text" id="city" name="ciudad_proveedor"/>
+	                    <input type="text" id="city" name="ciudad_proveedor" value="<%=proveedorVo.getCiudad_proveedor()%>"/>
 	                </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="address">Dirección</label>
-	                    <input type="text" id="address" name="direccion_proveedor" value="<%=ProveedorVo.getDireccion_proveedor() %>"/>
+	                    <input type="text" id="address" name="direccion_proveedor" value="<%=proveedorVo.getDireccion_proveedor()%>" />
 	                </td>
 	            </tr>
 	            <tr class="botones">
@@ -118,11 +117,11 @@
                     	<input onclick="limpiar()" type="submit" value="Limpiar"></input>
                     	<script>
                     	function limpiar() {
-                    	    document.getElementById("cedula_usuario").value = "";
-                    	    document.getElementById("usuario").value = "";
-                    	    document.getElementById("nombre_usuario").value = "";
-                    	    document.getElementById("contrasena").value = "";
-                    	    document.getElementById("email_usuario").value = "";
+                    	    document.getElementById("Nit").value = "";
+                    	    document.getElementById("telefono_proveedor").value = "";
+                    	    document.getElementById("nombre_proveedor").value = "";
+                    	    document.getElementById("ciudad_proveedor").value = "";
+                    	    document.getElementById("direccion_proveedor").value = "";
                     	}</script>
 	                </td>
 	            </tr>

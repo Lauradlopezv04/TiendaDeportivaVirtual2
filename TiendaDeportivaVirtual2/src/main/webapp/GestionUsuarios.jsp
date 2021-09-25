@@ -5,7 +5,6 @@
         com.BO.TiendaDeportivaVirtual.*,com.DTO.TiendaDeportivaVirtual.*"
 %>
 <%
-	long cedula_usuario= 0;
 	String nombre_usuario="";
 	String email_usuario="";
 	String usuario="";

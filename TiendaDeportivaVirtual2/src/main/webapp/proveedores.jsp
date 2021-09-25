@@ -57,10 +57,10 @@
 	                </td>
 	            </tr>
 	            <tr class="botones">
-	                <td><input type="submit" value="Consultar"/>
-	                    <input type="submit" value="Crear"/>
-	                    <input type="submit" value="Actualizar"/>
-	                    <input type="submit" value="Borrar"/>
+	                <td><input type="submit" name="boton" value="Consultar"/>
+	                    <input type="submit" name="boton" value="Crear"/>
+	                    <input type="submit" name="boton" value="Actualizar"/>
+	                    <input type="submit" name="boton" value="Borrar"/>
 	                </td>
 	            </tr>
 	           
