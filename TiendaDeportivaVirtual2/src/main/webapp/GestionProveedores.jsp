@@ -84,22 +84,22 @@
 	            <tr>
 	                <td>
 	                    <label for="nit">NIT</label>
-	                    <input type="text" id="nit" name="Nit" value="<%=ProveedorVo.getNit() %>"/>
+	                    <input type="text" id="nit" name="Nit"/>
 	                </td>
 	                <td>
 	                <label for="phone">Teléfono</label>
-	                <input type="text" id="phone" name="telefono_proveedor" value="<%=ProveedorVo.getTelefono_proveedor() %>"/>
+	                <input type="text" id="phone" name="telefono_proveedor"/>
 	            </td>
 	            </tr>
 	            <tr>
 	                <td>
 	                    <br>
 	                    <label for="supplier">Nombre Proveedor</label>
-	                    <input type="text" id="supplier" name="nombre_proveedore" value="<%=ProveedorVo.getNombre_proveedor() %>"/>
+	                    <input type="text" id="supplier" name="nombre_proveedor"/>
 	                </td>
 	                <td>
 	                    <label for="city">Ciudad</label>
-	                    <input type="text" id="city" name="ciudad_proveedor" value="<%=ProveedorVo.getCiudad_proveedor() %>"/>
+	                    <input type="text" id="city" name="ciudad_proveedor"/>
 	                </td>
 	            </tr>
 	            <tr>
