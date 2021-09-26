@@ -48,6 +48,7 @@
         long cedula_cli= Long.parseLong(request.getParameter("cedula_cliente"));
         clienteVo.setCedula_cliente(cedula_cli);
         cliente.eliminarCliente(clienteVo.getCedula_cliente());
+        request.getRequestDispatcher("clientes.jsp").forward(request, response);
     }
     }catch (Exception e){
     	request.getRequestDispatcher("clientes.jsp").forward(request, response);

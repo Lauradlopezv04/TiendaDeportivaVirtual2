@@ -48,6 +48,7 @@
     	long nit= Long.parseLong(request.getParameter("Nit"));
     	proveedorVo.setNit(nit);
     	proveedor.eliminarProveedor(proveedorVo.getNit());
+    	request.getRequestDispatcher("proveedores.jsp").forward(request, response);
     }
     }catch (Exception e){
     	request.getRequestDispatcher("proveedores.jsp").forward(request, response);
