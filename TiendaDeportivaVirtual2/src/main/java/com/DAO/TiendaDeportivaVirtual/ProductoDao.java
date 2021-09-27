@@ -15,8 +15,7 @@ public class ProductoDao extends Conexion {
 	public void recorrercsv() {
 		try {
 			Conectar();
-			ProductoCsv lista = new ProductoCsv();
-			for (ProductoVo producto : lista.leer()) {
+			for (ProductoVo producto : leer()) {
 				PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
 				sentencia.setLong(1, producto.getCodigo_producto());
 				sentencia.setString(2, producto.getNombre_producto());

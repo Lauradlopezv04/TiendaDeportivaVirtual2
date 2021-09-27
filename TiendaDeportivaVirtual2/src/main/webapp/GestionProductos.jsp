@@ -10,18 +10,21 @@ ProductoController producto= new ProductoController();
 ProductoVo productoVo= new ProductoVo();
 String opcion=request.getParameter("boton");
 if (opcion.equals("Examinar")){
-long codigo_producto= Long.parseLong(request.getParameter("codigo_producto"));
-long nitproveedor= Long.parseLong(request.getParameter("nitproveedor"));
-long precio_compra= Long.parseLong(request.getParameter("precio_compra"));
-long ivacompra= Long.parseLong(request.getParameter("ivacompra"));
-long precio_venta= Long.parseLong(request.getParameter("precio_venta"));
-productoVo.setCodigo_producto(codigo_producto);
-productoVo.setNitproveedor(nitproveedor);
-productoVo.setNombre_producto(request.getParameter("nombre_producto"));
-productoVo.setPrecio_compra(precio_compra);
-productoVo.setIvacompra(ivacompra);
-productoVo.setPrecio_venta(precio_venta);
-producto.recorrercsv();
+producto.examinarcsv();
+}
+else if(opcion.equals("Cargar")){
+	long codigo_producto= Long.parseLong(request.getParameter("codigo_producto"));
+	long nitproveedor= Long.parseLong(request.getParameter("nitproveedor"));
+	long precio_compra= Long.parseLong(request.getParameter("precio_compra"));
+	long ivacompra= Long.parseLong(request.getParameter("ivacompra"));
+	long precio_venta= Long.parseLong(request.getParameter("precio_venta"));
+	productoVo.setCodigo_producto(codigo_producto);
+	productoVo.setNitproveedor(nitproveedor);
+	productoVo.setNombre_producto(request.getParameter("nombre_producto"));
+	productoVo.setPrecio_compra(precio_compra);
+	productoVo.setIvacompra(ivacompra);
+	productoVo.setPrecio_venta(precio_venta);
+	producto.recorrercsv();
 }
 %>
 <!DOCTYPE html>
