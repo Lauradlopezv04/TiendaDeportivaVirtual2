@@ -5,17 +5,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
 
+import io.swagger.models.Path;
+
 public class ProductoDao extends Conexion {
-	public void recorrercsv() {
+	public void recorrercsv(String archivo) {
 		try {
 			Conectar();
-			for (ProductoVo producto : leer()) {
+			for (ProductoVo producto : leer(archivo)) {
 				PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
 				sentencia.setLong(1, producto.getCodigo_producto());
 				sentencia.setString(2, producto.getNombre_producto());
@@ -31,9 +34,10 @@ public class ProductoDao extends Conexion {
 		}
 	}
 	
-	public boolean examinarcsv() throws IOException {
+	public boolean examinarcsv(String dirarchivo) throws IOException {
 		try {
-		File archivo = new File("C:/Users/leale/OneDrive/Documentos/proyectos/misiontic/ciclo3/TiendaDeportivaVirtual2/TiendaDeportivaVirtual2/src/main/webapp/tablaprecios.csv");
+		Path ruta = Paths.get(dirarchivo);
+		File archivo = new File(dirarchivo);
 		String tipo = Files.probeContentType(archivo.toPath());
 		if (tipo == "application/vnd.ms-excel") {
 			return true;
@@ -45,8 +49,7 @@ public class ProductoDao extends Conexion {
 		}
 	}
 	
-	public List<ProductoVo> leer() {
-		String archivo = "C:/Users/leale/OneDrive/Documentos/proyectos/misiontic/ciclo3/TiendaDeportivaVirtual2/TiendaDeportivaVirtual2/src/main/webapp/tablaprecios.csv";
+	public List<ProductoVo> leer(String archivo) {
 		BufferedReader entrada = null;
 		String linea = "";
 		String separar = ",";
@@ -74,4 +77,5 @@ public class ProductoDao extends Conexion {
 	}
 }
 	
+
 
