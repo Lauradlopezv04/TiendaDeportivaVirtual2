@@ -145,3 +145,25 @@ table input{
     background-color:#e50051;
     color: white;
 }
+/****Diseño interfaz cargar lista de productos**/
+#productos table{
+    margin: 150px auto;
+}
+
+#productos .examinar [type="text"]{
+    width: 300px;
+}
+
+#productos .examinar .botones{
+    position:relative; 
+    left: -10%
+}
+
+#productos .cargar{
+    position: relative;
+    left: 29%;
+}
+
+#productos .cargar input{
+    margin-top: 0%;
+}
