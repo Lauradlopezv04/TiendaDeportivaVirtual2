@@ -51,16 +51,15 @@ public class ProductoDao extends Conexion {
 	}
 	
 	public List<ProductoVo> leer(String archivo) {
-		BufferedReader entrada = null;
+		CSVReader entrada = new CSVReader(new FileReader(archivo));
 		String linea = "";
 		String separar = ",";
 		List<ProductoVo> listadatos = new ArrayList<ProductoVo>();
 		ProductoVo producto = new ProductoVo();
+		
 		try {
-			entrada = new BufferedReader(new FileReader(archivo));
 			while ((linea = entrada.readLine()) != null) {
 				
-				String[] datos = linea.split(separar);
 				producto.setCodigo_producto(Long.parseLong(datos[0]));
 				producto.setNombre_producto(datos[1]);
 				producto.setNitproveedor(Long.parseLong(datos[2]));
