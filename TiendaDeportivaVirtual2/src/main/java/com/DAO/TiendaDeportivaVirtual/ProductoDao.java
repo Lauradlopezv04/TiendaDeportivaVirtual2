@@ -2,6 +2,7 @@ package com.DAO.TiendaDeportivaVirtual;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
+import com.opencsv.CSVReader;
 
 
 
@@ -50,22 +52,21 @@ public class ProductoDao extends Conexion {
 		}
 	}
 	
-	public List<ProductoVo> leer(String archivo) {
+	public List<ProductoVo> leer(String archivo) throws FileNotFoundException {
 		CSVReader entrada = new CSVReader(new FileReader(archivo));
-		String linea = "";
-		String separar = ",";
+		String[] linea = null;
 		List<ProductoVo> listadatos = new ArrayList<ProductoVo>();
 		ProductoVo producto = new ProductoVo();
 		
 		try {
-			while ((linea = entrada.readLine()) != null) {
+			while ((linea = entrada.readNext()) != null) {
 				
-				producto.setCodigo_producto(Long.parseLong(datos[0]));
-				producto.setNombre_producto(datos[1]);
-				producto.setNitproveedor(Long.parseLong(datos[2]));
-				producto.setPrecio_compra(Double.parseDouble(datos[3]));
-				producto.setIvacompra(Long.parseLong(datos[4]));
-				producto.setPrecio_venta(Double.parseDouble(datos[5]));
+				producto.setCodigo_producto(Long.parseLong(linea[0]));
+				producto.setNombre_producto(linea[1]);
+				producto.setNitproveedor(Long.parseLong(linea[2]));
+				producto.setPrecio_compra(Double.parseDouble(linea[3]));
+				producto.setIvacompra(Long.parseLong(linea[4]));
+				producto.setPrecio_venta(Double.parseDouble(linea[5]));
 				listadatos.add(producto);
 			}
 			entrada.close();
