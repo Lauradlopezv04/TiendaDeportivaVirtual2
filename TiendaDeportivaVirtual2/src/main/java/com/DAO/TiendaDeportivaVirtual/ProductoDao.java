@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
 
-import io.swagger.models.Path;
+
 
 public class ProductoDao extends Conexion {
 	public void recorrercsv(String archivo) {
@@ -27,8 +28,9 @@ public class ProductoDao extends Conexion {
 				sentencia.setLong(5, producto.getIvacompra());
 				sentencia.setDouble(6, producto.getPrecio_venta());
 				sentencia.executeUpdate();
-				Desconectar();
+				
 			}
+			Desconectar();
 		} catch(Exception e) {
 			System.out.println(e);
 		}
@@ -36,7 +38,6 @@ public class ProductoDao extends Conexion {
 	
 	public boolean examinarcsv(String dirarchivo) throws IOException {
 		try {
-		Path ruta = Paths.get(dirarchivo);
 		File archivo = new File(dirarchivo);
 		String tipo = Files.probeContentType(archivo.toPath());
 		if (tipo == "application/vnd.ms-excel") {
@@ -67,8 +68,8 @@ public class ProductoDao extends Conexion {
 				producto.setIvacompra(Long.parseLong(datos[4]));
 				producto.setPrecio_venta(Double.parseDouble(datos[5]));
 				listadatos.add(producto);
-				entrada.close();
 			}
+			entrada.close();
 			return listadatos;
 		} catch(Exception e) {
 			System.out.println(e);

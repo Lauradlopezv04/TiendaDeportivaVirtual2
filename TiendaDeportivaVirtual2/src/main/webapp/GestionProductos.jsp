@@ -3,21 +3,30 @@
         java.io.*,
         java.util.*,
         com.BO.TiendaDeportivaVirtual.*,
-        com.DTO.TiendaDeportivaVirtual.*"
+        com.DTO.TiendaDeportivaVirtual.*,
+        java.nio.file.Paths,
+        java.nio.file.Path
+        "
 %>
 <%
 ProductoController producto= new ProductoController();
 ProductoVo productoVo= new ProductoVo();
+String direccionactual = System.getProperty("user.dir");
+String direccionproyecto = "\\src\\main\\webapp\\";
 String opcion=(request.getParameter("boton"));
+
 if (opcion.equals("Examinar")){
-	String archivodireccion = request.getParameter("fileupload");
-	producto.examinarcsv(archivodireccion);
-	System.out.println(archivodireccion);
+	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
+	String rutas = ruta.toString();
+	boolean examinar = producto.examinarcsv(rutas);
+	if (examinar == true) {
+		
+	}
 }
 else if(opcion.equals("Cargar")){
-	String archivodireccion = request.getParameter("fileupload");
-	System.out.println(archivodireccion);
-	producto.recorrercsv(archivodireccion);
+	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
+	String rutas = ruta.toString();
+	producto.recorrercsv(rutas);
 }
 %>
 <!DOCTYPE html>
