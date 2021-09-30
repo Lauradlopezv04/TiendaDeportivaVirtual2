@@ -1,13 +1,10 @@
 package com.DAO.TiendaDeportivaVirtual;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,19 +17,18 @@ import com.opencsv.CSVReader;
 public class ProductoDao extends Conexion {
 	public void recorrercsv(String archivo) {
 		try {
-			Conectar();
-			for (ProductoVo producto : leer(archivo)) {
-				PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
-				sentencia.setLong(1, producto.getCodigo_producto());
-				sentencia.setString(2, producto.getNombre_producto());
-				sentencia.setLong(3, producto.getNitproveedor());
-				sentencia.setDouble(4, producto.getPrecio_compra());
-				sentencia.setLong(5, producto.getIvacompra());
-				sentencia.setDouble(6, producto.getPrecio_venta());
-				sentencia.executeUpdate();
-				
-			}
-			Desconectar();
+				Conectar();
+				for (ProductoVo producto : leer(archivo)) {
+					PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
+					sentencia.setLong(1, producto.getCodigo_producto());
+					sentencia.setString(2, producto.getNombre_producto());
+					sentencia.setLong(3, producto.getNitproveedor());
+					sentencia.setDouble(4, producto.getPrecio_compra());
+					sentencia.setLong(5, producto.getIvacompra());
+					sentencia.setDouble(6, producto.getPrecio_venta());
+					sentencia.executeUpdate();
+					Desconectar();
+				}
 		} catch(Exception e) {
 			System.out.println(e);
 		}

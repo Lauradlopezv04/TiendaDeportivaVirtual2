@@ -1,5 +1,6 @@
 package com.BO.TiendaDeportivaVirtual;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ProductoController {
 		return Dao.examinarcsv(archivo);
 	}
 	@RequestMapping("/leercsv")
-	public List<ProductoVo> leer(String archivo) {
+	public List<ProductoVo> leer(String archivo) throws FileNotFoundException {
 		ProductoDao Dao = new ProductoDao();
 		return Dao.leer(archivo);
 	}
