@@ -22,9 +22,6 @@ public class ProductoController {
 		ProductoDao Dao = new ProductoDao();
 		return Dao.examinarcsv(archivo);
 	}
-	@RequestMapping("/leercsv")
-	public List<ProductoVo> leer(String archivo) throws FileNotFoundException {
-		ProductoDao Dao = new ProductoDao();
-		return Dao.leer(archivo);
-	}
+
+
 }
