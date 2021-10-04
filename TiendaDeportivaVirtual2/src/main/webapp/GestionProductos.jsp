@@ -20,13 +20,15 @@ if (opcion.equals("Examinar")){
 	String rutas = ruta.toString();
 	boolean examinar = producto.examinarcsv(rutas);
 	if (examinar == true) {
-		
+	
 	}
 }
 else if(opcion.equals("Cargar")){
-	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
-	String rutas = ruta.toString();
-	producto.recorrercsv(rutas);
+	//Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
+	//String rutas = ruta.toString();
+	String rutas= "C:/Users/luisj/OneDrive/Escritorio/Ecvel/tablaprecios.csv";
+	productoVo.setArchivo(rutas);
+	producto.ListarProducto(productoVo);
 }
 %>
 <!DOCTYPE html>
