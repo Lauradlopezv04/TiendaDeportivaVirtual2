@@ -24,11 +24,9 @@ if (opcion.equals("Examinar")){
 	}
 }
 else if(opcion.equals("Cargar")){
-	//Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
-	//String rutas = ruta.toString();
-	String rutas= "C:/Users/luisj/OneDrive/Escritorio/Ecvel/tablaprecios.csv";
-	productoVo.setArchivo(rutas);
-	producto.ListarProducto(productoVo);
+	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
+	String rutas = ruta.toString();
+	producto.recorrercsv(rutas);
 }
 %>
 <!DOCTYPE html>

@@ -7,7 +7,6 @@ public class ProductoVo {
     private String nombre_producto;
     private double precio_compra;
     private double precio_venta;
-    private String archivo;
     
     public ProductoVo(){}
     public ProductoVo(long codigo_producto,long ivacompra,long Nitproveedor,String nombre_producto,double precio_compra,double precio_venta, String archivo){
@@ -17,14 +16,9 @@ public class ProductoVo {
         this.nombre_producto=nombre_producto;
         this.precio_compra=precio_compra;
         this.precio_venta=precio_venta;
-        this.archivo=archivo;
         }
-	public String getArchivo() {
-		return archivo;
-	}
-	public void setArchivo(String archivo) {
-		this.archivo = archivo;
-	}
+
+	
 	public long getCodigo_producto() {
 		return codigo_producto;
 	}
