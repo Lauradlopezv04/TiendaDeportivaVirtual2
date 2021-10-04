@@ -1,15 +1,12 @@
 package com.DAO.TiendaDeportivaVirtual;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
-
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
@@ -19,16 +16,16 @@ import com.opencsv.CSVReaderBuilder;
 
 
 public class ProductoDao extends Conexion {
-	public void recorrercsv(String archivo){
+	public void ListarProductos (ProductoVo producto){
 		FileReader archCSV= null;
 		CSVReader csvReader= null;
 		try {
-			archCSV= (new FileReader(archivo));
+			archCSV= (new FileReader(producto.getArchivo()));
 			CSVParser PuntoyComa= new CSVParserBuilder().withSeparator(';').build();
 			csvReader= new CSVReaderBuilder(archCSV).withCSVParser(PuntoyComa).build();
-			String[] fila= csvReader.readNext();
+			String[] fila=null;
 			ArrayList<String> lista= new ArrayList<String>();
-			while(fila != null) {
+			while((fila = csvReader.readNext()) != null){
 				lista.add(fila[0]);
 				lista.add(fila[1]);
 				lista.add(fila[2]);
@@ -37,13 +34,13 @@ public class ProductoDao extends Conexion {
 				lista.add(fila[5]);
 				String valor=lista.get(0);
 				valor=valor.replaceAll("[^\\d]", "");
-				long codigo_producto=Long.parseLong(lista.get(0));
+				System.out.println("aqui es el error");
+				long codigo_producto=Long.parseLong(valor);
 				String nombre_producto=lista.get(1);
 				long nit_proveedor= Long.parseLong(lista.get(2));
 				double precio_compra=Double.parseDouble(lista.get(3));
-				long iva_compra= Long.parseLong(lista.get(4));
+				double iva_compra= Double.parseDouble(lista.get(4));
 				double precio_venta=Double.parseDouble(lista.get(5));
-				ProductoVo producto= new ProductoVo();
 				producto.setCodigo_producto(codigo_producto);
 				producto.setNombre_producto(nombre_producto);
 				producto.setNitproveedor(nit_proveedor);
@@ -54,23 +51,29 @@ public class ProductoDao extends Conexion {
 				PreparedStatement consulta = Conexion.prepareStatement("SELECT * FROM proveedores where Nit=?");
 				consulta.setLong(1, nit_proveedor);
 				ResultSet rs= consulta.executeQuery();
-				if(!rs.isBeforeFirst()) {
-					System.out.println("No existe el nit " + lista.get(2));
-				}else {
-					PreparedStatement sentencia = Conexion.prepareStatement("insert into productos values(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
+				if(rs == null) {
+					System.out.println("No exsite el nit "+lista.get(2));
+				}
+				for(int i = 0; i< lista.size();i++) {
+					PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, ivacompra, precio_venta) values (?,?,?,?,?,?)");
 					sentencia.setLong(1, producto.getCodigo_producto());
 					sentencia.setString(2, producto.getNombre_producto());
 					sentencia.setLong(3, producto.getNitproveedor());
 					sentencia.setDouble(4, producto.getPrecio_compra());
-					sentencia.setLong(5, producto.getIvacompra());
+					sentencia.setDouble(5, producto.getIvacompra());
 					sentencia.setDouble(6, producto.getPrecio_venta());
+					sentencia.executeUpdate();
+					System.out.println(lista.size());
+					}
 				}
-			}
-				Desconectar();
-			}catch(Exception e) {
-				System.out.println(e);
-			}						
+
+			Desconectar();
+			Conexion.close();
 		}
+		catch(Exception e) {
+				System.out.println(e);
+			}
+	}
 	
 	
 	

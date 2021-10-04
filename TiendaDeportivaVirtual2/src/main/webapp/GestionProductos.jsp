@@ -24,11 +24,11 @@ if (opcion.equals("Examinar")){
 	}
 }
 else if(opcion.equals("Cargar")){
-	//Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
-	//String rutas = ruta.toString();
-	String rutas= "C:/Users/luisj/OneDrive/Escritorio/Ecvel/tablaprecios.csv";
+	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
+	String rutas = ruta.toString();
+	//String rutas= "C:/Users/luisj/OneDrive/Escritorio/Ecvel/tablaprecios.csv";
 	productoVo.setArchivo(rutas);
-	producto.ListarProducto(productoVo);
+	producto.ListarProductos(productoVo);
 }
 %>
 <!DOCTYPE html>
