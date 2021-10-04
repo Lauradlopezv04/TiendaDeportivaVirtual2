@@ -26,7 +26,7 @@ if (opcion.equals("Examinar")){
 else if(opcion.equals("Cargar")){
 	//Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
 	//String rutas = ruta.toString();
-	String rutas= "D:/MinTic-U bosque/Desarrollo Software/Proyecto/tablaprecios.csv";
+	String rutas= "C:/Users/luisj/OneDrive/Escritorio/Ecvel/tablaprecios.csv";
 	productoVo.setArchivo(rutas);
 	producto.ListarProducto(productoVo);
 }

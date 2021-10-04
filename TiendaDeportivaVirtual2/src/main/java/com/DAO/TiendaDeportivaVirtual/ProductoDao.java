@@ -53,7 +53,8 @@ public class ProductoDao extends Conexion {
 					ResultSet rs= consulta.executeQuery();
 					if(rs == null) {
 						System.out.println("No exsite el nit "+lista.get(2));
-					}else {
+					}
+					for(int i = 0; i< lista.size();i++) {
 						PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, ivacompra, precio_venta) values (?,?,?,?,?,?)");
 						sentencia.setLong(1, producto.getCodigo_producto());
 						sentencia.setString(2, producto.getNombre_producto());
@@ -61,11 +62,14 @@ public class ProductoDao extends Conexion {
 						sentencia.setDouble(4, producto.getPrecio_compra());
 						sentencia.setDouble(5, producto.getIvacompra());
 						sentencia.setDouble(6, producto.getPrecio_venta());
+						sentencia.executeUpdate();
+						System.out.println(lista.size());
+						}
 					}
+	
+				Desconectar();
 				}
-					Desconectar();
-					lista.clear();
-				}catch(Exception e) {
+			catch(Exception e) {
 					System.out.println(e);
 				}						
 			}
