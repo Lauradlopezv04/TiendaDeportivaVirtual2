@@ -1,5 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page
+    import="
+        java.io.*,
+        java.util.*,
+        com.BO.TiendaDeportivaVirtual.*,
+        com.DTO.TiendaDeportivaVirtual.*"
+%>
+<% 
+	String nombre_cliente="";
+	ClientesController cliente= new ClientesController();
+	ClienteVo clienteVo= new ClienteVo();
+	String opcion=request.getParameter("boton");
+	try{
+	if(opcion.equals("Consultar")){
+		long cedula_cli= Long.parseLong(request.getParameter("cedula_cliente"));
+		clienteVo.setCedula_cliente(cedula_cli);
+		clienteVo=cliente.consultarCliente(cedula_cli);
+        nombre_cliente= clienteVo.getNombre_cliente();
+	    if(clienteVo.getCedula_cliente()==0){
+			request.getRequestDispatcher("ventas.jsp").forward(request, response);
+		}
+	}
+	}catch (Exception e){
+		
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,25 +40,25 @@
             <h2></h2>
         </div>
         <div class="item-b">
-            <a href="./usuarios.html">Usuarios</a>
-            <a href="./clientes.html">Clientes</a>
-            <a href="./proveedores.html">Proveedores</a>
-            <a href="./productos.html">Productos</a>
-            <a href="./ventas.html">Ventas</a>
-            <a href="./reportes.html">Reportes</a>
+            <a href="./usuarios.jsp">Usuarios</a>
+            <a href="./clientes.jsp">Clientes</a>
+            <a href="./proveedores.jsp">Proveedores</a>
+            <a href="./productos.jsp">Productos</a>
+            <a href="./ventas.jsp">Ventas</a>
+            <a href="./reportes.jsp">Reportes</a>
         </div>
     </div>
-
+  <form action="GestionVentas.jsp" method="POST">
         <table id="ventas-a">
             <tr class="primera">
                 <td>
                     <label for="name">Cedula</label>
-                    <input type="text" id="name" name="user_name">
+                    <input type="text" id="name" name="cedula_cliente">
                 </td>
-                <td  class="botones"><input type="button" value="Consultar"/></td>
+                <td  class="botones"><input type="submit" name="boton" value="Consultar"/></td>
                 <td>
                     <label for="name">Cliente</label>
-                    <input type="text" id="name" name="user_name">
+                    <input type="text" id="name" name="nombre_cliente" value="<%=clienteVo.getNombre_cliente() %>">
                 </td>
                 <td>
                     <label for="name">Consec</label>
@@ -93,5 +117,6 @@
                 <input type="text" id="ventamasIva" name="ventamasIva"></td>
            </tr>
         </table>   
+    </form>
 </body>
 </html>

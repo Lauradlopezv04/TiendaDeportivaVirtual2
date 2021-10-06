@@ -24,17 +24,17 @@
             <a href="./reportes.jsp">Reportes</a>
         </div>
     </div>
-
+  <form action="GestionVentas.jsp" method="POST">
         <table id="ventas-a">
             <tr class="primera">
                 <td>
                     <label for="name">Cedula</label>
-                    <input type="text" id="name" name="user_name">
+                    <input type="text" id="name" name="cedula_cliente">
                 </td>
-                <td  class="botones"><input type="button" value="Consultar"/></td>
+                <td  class="botones"><input type="submit" name="boton" value="Consultar"/></td>
                 <td>
                     <label for="name">Cliente</label>
-                    <input type="name" id="name" name="user_name">
+                    <input type="text" id="name" name="nombre_cliente">
                 </td>
                 <td>
                     <label for="name">Consec</label>
@@ -93,5 +93,6 @@
                 <input type="text" id="ventamasIva" name="ventamasIva"></td>
            </tr>
         </table>   
+    </form>
 </body>
 </html>

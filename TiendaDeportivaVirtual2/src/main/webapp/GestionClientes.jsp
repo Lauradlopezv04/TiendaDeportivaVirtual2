@@ -96,7 +96,7 @@
                     <td>
                         <br>
                         <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="nombre_cliente" value="<%=clienteVo.getNombre_cliente() %>"/>
+                        <input type="text" id="name" name="nombre_cliente" value="<%=clienteVo.getNombre_cliente()%>"/>
                     </td>
                     <td>
                         <label for="mail">Correo Electrónico</label>
