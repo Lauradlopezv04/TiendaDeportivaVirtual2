@@ -74,6 +74,8 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
     margin-top: -8px;
+    margin-left:-8px;
+    margin-right:-8px;
     margin-bottom: 25px;
     padding: 10px;
     font-size: 50px;
@@ -166,4 +168,73 @@ table input{
 
 #productos .cargar input{
     margin-top: 0%;
+}
+/***********Diseño interfaz grafica de ventas**********/
+
+/*primera tabla de ventas*/
+#ventas-a{
+    margin-top: 5px;
+    margin-left: 170px;
+}
+
+.primera label{
+    margin-right: -98px;
+    margin-left: 5px;
+}
+
+.primera .botones input{
+    margin-left: -20px;
+    margin-right: 60px;
+}
+
+/*segunda tabla de ventas*/
+#ventas-b{
+    margin-top: -100px;
+    margin-left: 230px;
+    
+}
+
+.segunda label{
+    margin-left: -5px;
+    margin-right: -10px;
+}
+.segunda input{
+    margin: 10px 0px -5px -36px;
+}
+
+.segunda .botones input{
+    left: 22%;
+}
+
+#ventas-b .cantidad input{
+    width: 40px;
+    margin-left: 12px;
+}
+
+#ventas-b .v_total input{
+    margin-left: -80px;
+}
+
+/*tercera tabla de ventas*/
+#ventas-c{
+    margin-top: -92px;
+    margin-right: 245px;
+}
+
+.tercera input{
+    margin-bottom: 20px;
+    margin-left: -85px;
+}
+
+#ventas-d{
+    margin-top: -156px;
+    margin-right: 243px;
+}
+
+.cuarta input{
+    margin-left: -70px;
+}
+
+.cuarta .botones input{
+    margin-left: -90px;
 }

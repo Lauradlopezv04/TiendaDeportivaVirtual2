@@ -28,13 +28,13 @@
         <table id="ventas-a">
             <tr class="primera">
                 <td>
-                    <label for="cedula">Cedula</label>
-                    <input type="text" id="cedula" name="cedula_cliente">
+                    <label for="name">Cedula</label>
+                    <input type="text" id="name" name="user_name">
                 </td>
-                <td  class="botones"><input type="button" name="boton" value="Consultar"/></td>
+                <td  class="botones"><input type="button" value="Consultar"/></td>
                 <td>
                     <label for="name">Cliente</label>
-                    <input type="text" id="name" name="nombre_cliente">
+                    <input type="name" id="name" name="user_name">
                 </td>
                 <td>
                     <label for="name">Consec</label>
@@ -52,45 +52,45 @@
             </tr>
          <!--tercera Fila-->
             <tr class="segunda">
-                <td><input type="text" id="code_producto" name="codigo_producto"></td>
+                <td><input type="text" id="code_producto" name="code_producto"></td>
                 <td  class="botones"><input type="submit" value="Consultar"/></td>
-                <td><input type="text" id="n_producto" name="nombre_producto"></td>
+                <td><input type="text" id="n_producto" name="n_producto"></td>
                 <td class="cantidad"><input type="number" id="cantidad" name="cantidad"></td>
-                <td class="v_total"><input type="text" id="total" name="total_venta"></td>
+                <td class="v_total"><input type="text" id="total" name="valor_total"></td>
             </tr>  
             <!--cuarta Fila-->
             <tr class="segunda">
-                <td><input type="text" id="code_producto" name="codigo_producto"></td>
+                <td><input type="text" id="code_producto" name="code_producto"></td>
                 <td  class="botones"><input type="submit" value="Consultar"/>
                 </td>
-                <td><input type="text" id="n_producto" name="nombre_producto"></td>
+                <td><input type="text" id="n_producto" name="n_producto"></td>
                 <td class="cantidad"><input type="number" id="cantidad" name="cantidad"></td>
-                <td class="v_total"><input type="text" id="total" name="total_venta"></td>
+                <td class="v_total"><input type="text" id="total" name="valor_total"></td>
             </tr>  
             <!--quinta Fila-->
             <tr class="segunda">
-                <td><input type="text" id="code_producto" name="codigo_producto"></td>
+                <td><input type="text" id="code_producto" name="code_producto"></td>
                 <td  class="botones"><input type="submit" value="Consultar"/></td>
-                <td><input type="text" id="n_producto" name="nombre_producto"></td>
+                <td><input type="text" id="n_producto" name="n_producto"></td>
                 <td class="cantidad"><input type="number" id="cantidad" name="cantidad"></td>
-                <td class="v_total"><input type="text" id="total" name="total_venta"></td>
+                <td class="v_total"><input type="text" id="total" name="valor_total"></td>
             </tr>  
         </table>
         <table id="ventas-c">
             <tr class="tercera">
                 <td><label for="total_ventas">Total Ventas</label>
-                <input type="text" id="total_ventas" name="total_venta"></td>
+                <input type="text" id="total_ventas" name="total_ventas"></td>
             </tr>
             <tr class="tercera">
                 <td><label for="total_iva">Total IVA</label>
-                <input type="text" id="total_iva" name="ivaventa"></td>
+                <input type="text" id="total_iva" name="total_iva"></td>
             </tr>
         </table>
         <table id="ventas-d">
             <tr class="cuarta">
                 <td  class="botones"><input type="button" value="Confirmar"/></td>
                 <td><label for="ventamasIva">Total con IVA</label>
-                <input type="text" id="ventamasIva" name="valor_venta"></td>
+                <input type="text" id="ventamasIva" name="ventamasIva"></td>
            </tr>
         </table>   
 </body>
