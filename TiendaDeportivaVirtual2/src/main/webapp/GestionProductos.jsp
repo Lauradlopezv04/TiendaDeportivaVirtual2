@@ -19,9 +19,7 @@ if (opcion.equals("Examinar")){
 	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));
 	String rutas = ruta.toString();
 	boolean examinar = producto.examinarcsv(rutas);
-	if (examinar == true) {
 	
-	}
 }
 else if(opcion.equals("Cargar")){
 	Path ruta = Paths.get(direccionactual  + direccionproyecto + (request.getParameter("fileupload")));

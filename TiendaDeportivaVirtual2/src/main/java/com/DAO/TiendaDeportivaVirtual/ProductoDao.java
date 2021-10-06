@@ -7,67 +7,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
+
 
 
 
 public class ProductoDao extends Conexion {
-	/*public void recorrercsv(String archivo){
-		FileReader archCSV= null;
-		CSVReader csvReader= null;
-		try {
-			archCSV= (new FileReader(archivo));
-			CSVParser PuntoyComa= new CSVParserBuilder().withSeparator(';').build();
-			csvReader= new CSVReaderBuilder(archCSV).withCSVParser(PuntoyComa).build();
-			String[] fila= new String[6];
-			ArrayList<String> lista = new ArrayList<String>();
-			fila = csvReader.readNext();
-			while(fila != null) {
-				lista.add(fila[0]);
-				lista.add(fila[1]);
-				lista.add(fila[2]);
-				lista.add(fila[3]);
-				lista.add(fila[4]);
-				lista.add(fila[5]);
-				String valor=lista.get(0);
-				
-				ProductoVo producto= new ProductoVo();
-				producto.setCodigo_producto(Long.parseLong(valor));
-				producto.setNombre_producto(lista.get(1));
-				producto.setNitproveedor(Long.parseLong(lista.get(2)));
-				producto.setPrecio_compra(Double.parseDouble(lista.get(3)));
-				producto.setIvacompra(Long.parseLong(lista.get(4)));
-				producto.setPrecio_venta(Double.parseDouble(lista.get(5)));
-				Conectar();
-				PreparedStatement consulta = Conexion.prepareStatement("SELECT * FROM proveedores where Nit=?");
-				consulta.setLong(1, producto.getNitproveedor());
-				ResultSet rs= consulta.executeQuery();
-				if(!rs.isBeforeFirst()) {
-					System.out.println("No existe el nit " + lista.get(2));
-				}else {
-					PreparedStatement sentencia = Conexion.prepareStatement("insert into productos values(codigo_producto, nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?,?)");
-					sentencia.setLong(1, producto.getCodigo_producto());
-					sentencia.setString(2, producto.getNombre_producto());
-					sentencia.setLong(3, producto.getNitproveedor());
-					sentencia.setDouble(4, producto.getPrecio_compra());
-					sentencia.setLong(5, producto.getIvacompra());
-					sentencia.setDouble(6, producto.getPrecio_venta());
-					sentencia.executeUpdate();
-				}
-				
-			}
-				Desconectar();
-			}catch(Exception e) {
-				System.out.println(e);
-			}						
-		}
-	*/
+
 	public void recorrercsv(String archivo) {
 		BufferedReader leer = null;
 		String linea = "";
@@ -106,7 +52,7 @@ public class ProductoDao extends Conexion {
 			} catch(Exception e) {
 				System.out.println(e);
 			}
-	}
+}
 	
 	public boolean examinarcsv(String dirarchivo) throws IOException {
 		try {
