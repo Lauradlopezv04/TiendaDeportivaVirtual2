@@ -1,13 +1,16 @@
 package com.DTO.TiendaDeportivaVirtual;
-
+// Clase UsuarioVo
 public class UsuarioVo {
+	// Atributos
 	private long cedula_usuario;
     private String nombre_usuario;
     private String email_usuario;
     private String usuario;
     private String contrasena;
     
+    // Constructor vacio
     public UsuarioVo(){}
+    // Constructor
     public UsuarioVo(long cedula_usuario, String nombre_usuario, String email_usuario,String contrasena,String usuario){
         this.cedula_usuario=cedula_usuario;
         this.nombre_usuario=nombre_usuario;
@@ -15,6 +18,7 @@ public class UsuarioVo {
         this.usuario=usuario;
         this.contrasena=contrasena;      
         }
+    // Getters y setters
 	public long getCedula_usuario() {
 		return cedula_usuario;
 	}

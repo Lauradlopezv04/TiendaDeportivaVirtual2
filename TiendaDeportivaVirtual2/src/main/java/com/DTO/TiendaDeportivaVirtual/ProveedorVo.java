@@ -1,13 +1,17 @@
 package com.DTO.TiendaDeportivaVirtual;
 
+// Clase proveedorVo
 public class ProveedorVo {
+	// Atributos
 	private long Nit;
 	private String nombre_proveedor;
 	private String direccion_proveedor;
 	private String telefono_proveedor;
     private String ciudad_proveedor;
-       
+    
+    // Constructor vacio
     public ProveedorVo(){}
+    // Constructor
     public ProveedorVo(long Nit,String nombre_proveedor,String direccion_proveedor,String telefono_proveedor,String ciudad_proveedor){
         this.Nit=Nit;
         this.nombre_proveedor=nombre_proveedor;
@@ -15,6 +19,7 @@ public class ProveedorVo {
         this.telefono_proveedor=telefono_proveedor;
         this.ciudad_proveedor=ciudad_proveedor;
        }
+    // Getters y setters
 	public long getNit() {
 		return Nit;
 	}

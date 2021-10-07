@@ -1,6 +1,8 @@
 package com.DTO.TiendaDeportivaVirtual;
 
+// Clase Detalle venta 
 public class DetalleVentaVo {
+	// Atributos
 	private long codigo_detalle_venta;
     private long cantidad_producto;
     private long codigo_producto;
@@ -8,8 +10,9 @@ public class DetalleVentaVo {
     private long valor_total;
     private long valor_venta;
     private long valoriva;
-    
+    // Constructor vacio
     public DetalleVentaVo(){}
+    // Constructor
     public DetalleVentaVo(long codigo_detalle_venta,long cantidad_producto,long codigo_producto,long codigo_venta,long  valor_total,long valor_venta,long valoriva){
         this.codigo_detalle_venta=codigo_detalle_venta;
         this.cantidad_producto=cantidad_producto;
@@ -19,7 +22,7 @@ public class DetalleVentaVo {
         this.valor_venta=valor_venta;
         this.valoriva=valoriva;
         }
-
+    // Getter y setter
     public long getCantidad_producto() {
         return cantidad_producto;
     }

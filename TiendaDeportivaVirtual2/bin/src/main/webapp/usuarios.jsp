@@ -1,16 +1,5 @@
-<%@ page
-    import="
-        java.io.*,
-        java.util.*,
-        com.BO.TiendaDeportivaVirtual.*,com.DTO.TiendaDeportivaVirtual.*"
-%>
-<%
-UsuariosController user =new UsuariosController();
-    UsuarioVo userVo=new UsuarioVo();
-    long cedula= Long.parseLong(request.getParameter("cedula_usuario"));
-    userVo.setCedula_usuario(cedula);
-    user.eliminarPersona(userVo.getCedula_usuario());
-%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,17 +16,17 @@ UsuariosController user =new UsuariosController();
             <h2></h2>
          </div>
           <div class="item-b">
-            <a href="./usuarios.html">Usuarios</a>
-            <a href="./clientes.html">Clientes</a>
-            <a href="./proveedores.html">Proveedores</a>
-            <a href="./productos.html">Productos</a>
-            <a href="./ventas.html">Ventas</a>
-            <a href="./reportes.html">Reportes</a>
+            <a href="./usuarios.jsp">Usuarios</a>
+            <a href="./clientes.jsp">Clientes</a>
+            <a href="./proveedores.jsp">Proveedores</a>
+            <a href="./productos.jsp">Productos</a>
+            <a href="./ventas.jsp">Ventas</a>
+            <a href="./reportes.jsp">Reportes</a>
           </div>
     </div>
 
     <div id="reusuario">
-      <form method="POST" id="miform">
+      <form action="GestionUsuarios.jsp" method="POST">
             <table>
                 <tr class="elemento">
                  <td>
@@ -69,10 +58,10 @@ UsuariosController user =new UsuariosController();
                 </tr>
                 <tr class="botones">
                     <td>
-                    	<input type="submit" value="Consultar" name="crear" formaction="ConsultarUsuario.jsp"/>
-                    	<input type="submit"  value="Crear" formaction="CrearUsuario.jsp"/>
-                    	<input  type="submit" value="Actualizar" formaction="ActualizarUsuario.jsp"/>
-                    	<input type="submit" value="Borrar" formaction="EliminarUsuario.jsp"/>
+                    	<input type="submit" name="boton" value="Consultar"/>
+                    	<input type="submit" name="boton"  value="Crear"/>
+                    	<input  type="submit" name="boton"value="Actualizar"/>
+                    	<input type="submit" name="boton" value="Borrar"/>
                     </td>
                 </tr>
             </table> 
@@ -80,3 +69,4 @@ UsuariosController user =new UsuariosController();
     </div>
 </body>
 </html>
+    

@@ -1,6 +1,7 @@
 package com.DTO.TiendaDeportivaVirtual;
-
+// Clase productoVo
 public class ProductoVo {
+	// Atributos
 	private long codigo_producto;
     private double ivacompra;
     private long Nitproveedor;
@@ -8,7 +9,9 @@ public class ProductoVo {
     private double precio_compra;
     private double precio_venta;
     
+    // Constructor vacio
     public ProductoVo(){}
+    // Constructor
     public ProductoVo(long codigo_producto,long ivacompra,long Nitproveedor,String nombre_producto,double precio_compra,double precio_venta, String archivo){
         this.codigo_producto=codigo_producto;
         this.ivacompra=ivacompra;
@@ -18,7 +21,7 @@ public class ProductoVo {
         this.precio_venta=precio_venta;
         }
 
-	
+	// Getters y setters
 	public long getCodigo_producto() {
 		return codigo_producto;
 	}

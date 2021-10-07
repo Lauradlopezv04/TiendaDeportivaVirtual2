@@ -1,13 +1,16 @@
 package com.DTO.TiendaDeportivaVirtual;
-
+// Clase ClienteVo
 public class ClienteVo {
+	// Atributos
     private long cedula_cliente;
     private String nombre_cliente;
     private String direccion_cliente;
     private String telefono_cliente;
     private String email_cliente;
     
+    // Constructor vacio
     public ClienteVo(){}
+    // Constructor
     public ClienteVo(long cedula_cliente,String nombre_cliente,String direccion_cliente,String telefono_cliente, String email_cliente){
         this.cedula_cliente=cedula_cliente;
         this.nombre_cliente=nombre_cliente;
@@ -15,6 +18,7 @@ public class ClienteVo {
         this.telefono_cliente=telefono_cliente;
         this.email_cliente=email_cliente;
     }
+    // Getter y setter
 	public long getCedula_cliente() {
 		return cedula_cliente;
 	}
