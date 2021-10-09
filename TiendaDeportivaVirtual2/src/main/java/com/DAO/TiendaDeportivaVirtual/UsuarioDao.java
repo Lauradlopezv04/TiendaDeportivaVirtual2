@@ -2,8 +2,6 @@ package com.DAO.TiendaDeportivaVirtual;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.DAO.TiendaDeportivaVirtual.UsuarioDao;
 import com.DTO.TiendaDeportivaVirtual.UsuarioVo;

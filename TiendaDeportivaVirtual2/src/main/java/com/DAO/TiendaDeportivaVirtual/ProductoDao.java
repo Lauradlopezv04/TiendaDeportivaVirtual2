@@ -28,12 +28,11 @@ public class ProductoDao extends Conexion {
 				String[] datos = linea.split(separar);
 				// Instanciamos ProductoVo y cada dato va a ser un atributo de esta clase
 				ProductoVo producto = new ProductoVo();
-				producto.setCodigo_producto(Long.parseLong(datos[0]));
-				producto.setNombre_producto(datos[1]);
-				producto.setNitproveedor(Long.parseLong(datos[2]));
-				producto.setPrecio_compra(Double.parseDouble(datos[3]));
-				producto.setIvacompra(Double.parseDouble(datos[4]));
-				producto.setPrecio_venta(Double.parseDouble(datos[5]));
+				producto.setNombre_producto(datos[0]);
+				producto.setNitproveedor(Long.parseLong(datos[1]));
+				producto.setPrecio_compra(Double.parseDouble(datos[2]));
+				producto.setIvacompra(Double.parseDouble(datos[3]));
+				producto.setPrecio_venta(Double.parseDouble(datos[4]));
 				// Nos conectamos a la base de datos
 				Conectar();
 				// Primero tendremos que llamar a proveedores para verificar que los datos existan en la tabla la cual producto depende
@@ -47,13 +46,12 @@ public class ProductoDao extends Conexion {
 					System.out.println("no existe el nit " + producto.getNitproveedor());
 					
 				} else { // Si existe el proveedor
-					PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(codigo_producto, nombre_producto, Nitproveedor, precio_compra, ivacompra, precio_venta) values (?,?,?,?,?,?)");
-					sentencia.setLong(1, producto.getCodigo_producto());
-					sentencia.setString(2, producto.getNombre_producto());
-					sentencia.setLong(3, producto.getNitproveedor());
-					sentencia.setDouble(4, producto.getPrecio_compra());
-					sentencia.setDouble(5, producto.getIvacompra());
-					sentencia.setDouble(6, producto.getPrecio_venta());
+					PreparedStatement sentencia = Conexion.prepareStatement("insert into productos(nombre_producto, Nitproveedor, precio_compra, iva, precio_venta) values (?,?,?,?,?)");
+					sentencia.setString(1, producto.getNombre_producto());
+					sentencia.setLong(2, producto.getNitproveedor());
+					sentencia.setDouble(3, producto.getPrecio_compra());
+					sentencia.setDouble(4, producto.getIvacompra());
+					sentencia.setDouble(5, producto.getPrecio_venta());
 					// Ejecutamos el comando
 					sentencia.executeUpdate();
 				}
