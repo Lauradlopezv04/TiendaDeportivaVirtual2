@@ -26,7 +26,7 @@
     <div class="d-flex">
         <div class="col-sm-4 parte01">
             <div class="card">
-                <form action="Controlador?menu=NuevaVenta" method="POST">
+                <form action="GestionVentas.jsp" method="POST">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Datos del cliente</label>
