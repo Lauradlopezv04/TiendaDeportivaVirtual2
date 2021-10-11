@@ -11,10 +11,11 @@ public class VentaVo {
     private double ivaVenta;
     private double total_venta;
     private double valor_venta;
+    String DescripcionP;
     public VentaVo (){
     }
 
-    public VentaVo(long codigo_producto, long cantidad_producto, double valor_u, double valor_total, long codigo_venta, long cedula_usuario, long cedula_cliente, double ivaVenta, double total_venta, double valor_venta) {
+    public VentaVo(long codigo_producto, long cantidad_producto, double valor_u, double valor_total, long codigo_venta, long cedula_usuario, long cedula_cliente, double ivaVenta, double total_venta, double valor_venta, String DescripcionP) {
         this.codigo_producto = codigo_producto;
         this.cantidad_producto = cantidad_producto;
         this.valor_u = valor_u;
@@ -106,5 +107,11 @@ public class VentaVo {
     public void setValor_venta(double valor_venta) {
         this.valor_venta = valor_venta;
     }
-    
+    public String getDescripcionP() {
+        return DescripcionP;
+    }
+
+    public void setDescripcionP(String DescripcionP) {
+        this.DescripcionP = DescripcionP;
+    }
 }

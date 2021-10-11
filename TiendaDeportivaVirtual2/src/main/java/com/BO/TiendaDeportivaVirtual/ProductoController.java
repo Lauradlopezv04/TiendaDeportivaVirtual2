@@ -3,6 +3,7 @@ import java.io.IOException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.DAO.TiendaDeportivaVirtual.ProductoDao;
+import com.DTO.TiendaDeportivaVirtual.ProductoVo;
 
 @RestController
 public class ProductoController {
@@ -15,5 +16,11 @@ public class ProductoController {
 	public boolean examinarcsv(String archivo) throws IOException {
 		ProductoDao Dao = new ProductoDao();
 		return Dao.examinarcsv(archivo);
+	}
+	@RequestMapping("/listarProducto")
+	public ProductoVo listar (int cd) {
+		ProductoDao Dao = new ProductoDao();
+		return Dao.listar(cd);
+		
 	}
 }
