@@ -5,13 +5,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.DTO.TiendaDeportivaVirtual.ProductoVo;
 
 // Clase de producto que llamara los metodos de Conexion
 public class ProductoDao extends Conexion {
-	
+	Conexion cn=new Conexion();
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+    int r;
 	// Metodo recorrercsv
 	public void recorrercsv(String archivo) {
 		// Definimos variables a usar
@@ -81,5 +86,27 @@ public class ProductoDao extends Conexion {
 		} catch(Exception e) {
 			return false;
 		}
+	}
+	
+	public ProductoVo listar (int cd) {		
+		try {
+			Conectar ();
+			PreparedStatement sentencia = Conexion.prepareStatement("select * from productos where codigo_producto = ?");
+			sentencia.setInt(1, cd);
+			ResultSet datos = sentencia.executeQuery();
+			if(datos.next()) {
+				ProductoVo Producto=new ProductoVo();
+				Producto.setcd(datos.getInt("codigo_producto"));
+				Producto.setNombre_producto(datos.getString("nombre_producto"));
+				Producto.setNitproveedor(datos.getLong("Nitproveedor"));
+				Producto.setPrecio_compra(datos.getDouble("precio_compra"));
+				Producto.setIvacompra(datos.getLong("iva"));
+				Producto.setPrecio_venta(datos.getDouble("precio_venta"));
+				Desconectar();
+				return Producto;
+			}
+		} catch(Exception e) {
+		}
+		return null;
 	}
 }

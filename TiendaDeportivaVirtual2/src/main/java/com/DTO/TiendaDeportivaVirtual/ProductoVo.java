@@ -7,7 +7,7 @@ public class ProductoVo {
     private String nombre_producto;
     private double precio_compra;
     private double precio_venta;
-    
+    private int cd;
     // Constructor vacio
     public ProductoVo(){}
     // Constructor
@@ -51,6 +51,13 @@ public class ProductoVo {
 	public void setPrecio_venta(double precio_venta) {
 		this.precio_venta = precio_venta;
 	}
+	public int getcd() {
+        return cd;
+    }
+
+    public void setcd(int cd) {
+        this.cd = cd;
+    }
 
    
 }

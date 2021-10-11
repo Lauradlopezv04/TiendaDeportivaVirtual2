@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link href="estilos/estilos.css" rel="stylesheet"/>
+        <link href="css/Estilos.css" type="text/css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
     <title>VENTAS</title>
 </head>
@@ -26,7 +26,7 @@
     <div class="d-flex">
         <div class="col-sm-4 parte01">
             <div class="card">
-                <form action="Controlador?menu=NuevaVenta" method="POST">
+                <form action="GestionVentas.jsp" method="POST">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Datos del cliente</label>
@@ -80,7 +80,6 @@
                         <table class="table table-hover ml-aout">
                             <thead>
                                 <tr>
-                                    <th>Nro</th>
                                     <th>Codigo</th>
                                     <th>Descripcion</th>
                                     <th>Precio</th>
